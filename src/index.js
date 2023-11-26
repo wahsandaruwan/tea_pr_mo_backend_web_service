@@ -3,6 +3,9 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv/config");
 
+// ----------Custom libraries and modules----------
+const Configs = require("./configs");
+
 // ----------Global instances----------
 const app = express();
 const PORT = Configs.DEV_PORT || 3308;
