@@ -5,6 +5,7 @@ require("dotenv/config");
 
 // ----------Custom libraries and modules----------
 const Configs = require("./configs");
+const { ConnectDatabase } = require("./api/v1/libraries");
 
 // ----------Global instances----------
 const app = express();
@@ -34,4 +35,9 @@ app.use((req, res) => {
 // ----------Initialize the connection----------
 app.listen(PORT, () => {
   console.log(`Server is running at ${PORT}`);
+
+  // Initialize the db connection
+  ConnectDatabase()
+    .then(() => console.log("Connected to DB!"))
+    .catch((err) => console.log(err));
 });
